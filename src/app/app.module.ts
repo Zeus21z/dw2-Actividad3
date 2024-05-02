@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms'; // Importa el módulo 'FormsModule
 
 import { AppComponent } from './app.component'; // Importa el componente principal de la aplicación desde './app.component'
 import { HeroesComponent } from './heroes/heroes.component'; // Importa el componente de héroes desde './heroes/heroes.component'
+import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 
 @NgModule({
   declarations: [ // Define los componentes, directivas y tuberías que pertenecen a este módulo
@@ -12,7 +13,9 @@ import { HeroesComponent } from './heroes/heroes.component'; // Importa el compo
   ],
   imports: [ // Importa otros módulos necesarios
     BrowserModule, // Importa el módulo 'BrowserModule' para habilitar la ejecución de la aplicación en el navegador
-    FormsModule // Importa el módulo 'FormsModule' para habilitar la vinculación de datos bidireccional mediante ngModel
+    FormsModule,
+    HeroesComponent,
+    HeroDetailComponent // Importa el módulo 'FormsModule' para habilitar la vinculación de datos bidireccional mediante ngModel
   ],
   providers: [], // Define los proveedores de servicios que el módulo contribuye al sistema de inyección de dependencias
   bootstrap: [AppComponent] // Define el componente raíz que se utilizará para iniciar la aplicación

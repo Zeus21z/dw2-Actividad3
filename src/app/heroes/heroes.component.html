@@ -1,21 +1,12 @@
-<h2>Mis heroes</h2> <!-- Este es un encabezado que simplemente muestra "Mis heroes" -->
+<h2>My Heroes</h2>
 
-<ul class="heroes"> <!-- Aquí comienza una lista no ordenada de héroes -->
-  <li *ngFor="let hero of heroes" 
-    [class.selected]="hero === selectedHero"  
-    (click)="onSelect(hero)"> <!-- Este es un evento de clic que llama a la función 'onSelect(hero)' cuando se hace clic en el <li> -->
-    <span class="badge">{{hero.id}}</span> {{hero.name}} <!-- Aquí se muestra el id del héroe y su nombre -->
+<ul class="heroes">
+  <li *ngFor="let hero of heroes">
+    <button [class.selected]="hero === selectedHero" type="button" (click)="onSelect(hero)">
+      <span class="badge">{{hero.id}}</span>
+      <span class="name">{{hero.name}}</span>
+    </button>
   </li>
 </ul>
 
-<div *ngIf="selectedHero"> <!-- Esta es una directiva estructural de Angular que muestra el contenido dentro del <div> solo si 'selectedHero' es verdadero -->
-
-  <h2>{{selectedHero.name | uppercase}} Details</h2> <!-- Aquí se muestra el nombre del héroe en mayúsculas y se agrega "Details" -->
-  <div><span>id: </span>{{selectedHero.id}}</div> <!-- Aquí se muestra el id del héroe -->
-  <div>
-    <label>nombre:
-      <input [(ngModel)]="selectedHero.name" placeholder="name"/> <!-- Aquí se muestra un campo de entrada para el nombre del héroe con enlace bidireccional -->
-    </label>
-  </div>
-
-</div>
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
