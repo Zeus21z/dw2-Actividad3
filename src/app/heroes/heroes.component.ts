@@ -1,4 +1,84 @@
-import { Component, OnInit } from '@angular/core'; // Importa los módulos 'Component' y 'OnInit' desde '@angular/core'
+import { Component, OnInit } from '@angular/core';
+
+import { Hero } from '../heroes';
+import { HeroService } from '../hero.service';
+import { MessageService } from '../message.service';
+
+@Component({
+  selector: 'app-heroes,  app-hero-detail',
+  templateUrl: './heroes.component.html',
+  styleUrls: ['./heroes.component.css']
+})
+export class HeroesComponent implements OnInit {
+
+  selectedHero!: Hero;
+
+  heroes!: Hero[];
+
+  constructor(private heroService: HeroService, private messageService: MessageService) { }
+
+  ngOnInit() {
+    this.getHeroes();
+  }
+
+  onSelect(hero: Hero): void {
+    this.selectedHero = hero;
+    this.messageService.add(`HeroesComponent: Selected hero id=${hero.id}`);
+  }
+
+  getHeroes(): void {
+    this.heroService.getHeroes()
+        .subscribe(heroes => this.heroes = heroes);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*import { Component, OnInit } from '@angular/core'; // Importa los módulos 'Component' y 'OnInit' desde '@angular/core'
 import { Hero } from '../heroes'; // Importa la interfaz 'Hero' desde el archivo '../heroes'
 //import { HEROES } from '../mock-heroes'; // Importa la constante 'HEROES' desde el archivo '../mock-heroes'
 import { HeroService } from '../hero.service';
@@ -28,7 +108,7 @@ export class HeroesComponent { // Define la clase 'HeroesComponent'
 
   
 }
-
+*/
 
 /*export class HeroesComponent implements OnInit {
 
